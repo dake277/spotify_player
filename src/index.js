@@ -4,7 +4,7 @@ import './index.css'
 import App from './App'
 import { Provider } from 'react-redux'
 import { createStore , applyMiddleware } from 'redux'
-import { createLogger } from 'redux-logger'
+
 import registerServiceWorker from './registerServiceWorker'
 import reducer from './reducers'
 import createSagaMiddleware from 'redux-saga'
@@ -12,7 +12,7 @@ import rootSaga from './sagas/rootSaga'
 
 const sagaMiddleware = createSagaMiddleware()
 const middleware = [ sagaMiddleware ]
-middleware.push(createLogger())
+// middleware.push(createLogger())
 
 const store = createStore(
     reducer,

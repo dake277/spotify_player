@@ -77,10 +77,5 @@ class MainView extends React.Component {
 
 export default connect(state => ({
     headerTitle: state.uiReducer.title,
-
-
-
-
-
     token : state.tokenReducer.token ? state.tokenReducer.token : '',
 }))(MainView)

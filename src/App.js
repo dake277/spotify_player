@@ -51,12 +51,11 @@ const MainLayout = styled.div`
     } 
 
   }
-
+  
  `
 class App extends Component {
 
     loadingTimeout = null
-
 
     constructor(props) {
       super(props)
@@ -76,6 +75,7 @@ class App extends Component {
         this.props.setToken(parsed.access_token)
       }
       this.audio.addEventListener("ended",this.onStop)
+    console.log(`currentlyPlaying:${this.props.currentlyPlaying}`)
   }
 
   UNSAFE_componentWillReceiveProps(nextProps){
@@ -86,6 +86,7 @@ class App extends Component {
 
   componentWillUnmount() {
     this.audio.removeEventListener("ended",this.onStop)
+
   }
 
   onPlay = (currentTrack) => {
@@ -96,7 +97,8 @@ class App extends Component {
     if ((currentTrack && currentTrack.track && currentTrack.track.preview_url) || this.props.currentlyPlaying) {
       const url = currentTrack ? currentTrack.track.preview_url : 
       this.props.currentlyPlaying.track.preview_url
-      
+
+      console.log(`url:${url}`)
       this.audio.src = url
       if(!this.state.loading) {
         this.setState({ loading: true })

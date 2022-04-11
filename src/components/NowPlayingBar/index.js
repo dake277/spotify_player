@@ -58,6 +58,7 @@ class NowPlayingBar extends React.Component {
     onPlayerPlay = (currentTrack) => {
         if (this.state.timeLeft <= 30 && !this.timeout) {
         this.props.onPlay(currentTrack)
+        console.log(currentTrack)
 
             this.timeout = window.setInterval(() => {
                 this.setState(prevState => ({
